@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class ValidationError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "ValidationError";
+        }
+      }
+      // TODO 2
+      function validateNumberInput(a, b, c) {
+        try {
+          if (typeof a !== "number") {
+            throw new ValidationError("Argumen pertama harus number");
+          }
+          if (typeof b !== "number") {
+            throw new ValidationError("Argumen pertama harus number");
+          }
+          if (typeof c !== "number") {
+            throw new ValidationError("Argumen pertama harus number");
+          }
+        } catch (error) {
+          return `${error.message}`;
+        }
+      }
+      function detectTriangle(a, b, c) {
+        // TODO 3
+        try {
+          const checkPoint = validateNumberInput(a, b, c);
+
+          if (!checkPoint) {
+            if (a === b && b === c) {
+              return "Segitiga sama sisi";
+            }
+
+            if (a === b || a === c || b === c) {
+              return "Segitiga sama kaki";
+            }
+
+            return "Segitiga sembarang";
+          } else {
+            return checkPoint;
+          }
+        } catch (error) {
+          const isi = validateNumberInput(a, b, c);
+          return isi;
+        }
+      }
+
+      console.log(detectTriangle(1, false, 1));
+      console.log(detectTriangle("a", 3, 5));
+      console.log(detectTriangle(12, 2, null));
+    </script>
+  </body>
+</html>
