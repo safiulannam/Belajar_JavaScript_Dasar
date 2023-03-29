@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var tanya = "";
+      while (tanya) {
+        var user = prompt("Pilih : gajah, orang, semut");
+
+        var comp = Math.random();
+
+        if (comp < 0.34) {
+          comp = "gajah";
+        } else if (comp >= 0.34 && comp < 0.67) {
+          comp = "orang";
+        } else {
+          comp = "semut";
+        }
+
+        var hasil = "";
+
+        if (user == comp) {
+          hasil = "SERI";
+        } else if (user == gajah) {
+          hasil = comp == "orang" ? "MENANG" : "KALAH";
+        } else if (user == "orang") {
+          hasil = comp == "gajah" ? "MENANG" : "KALAH";
+        } else if (user == semut) {
+          hasil = comp == "orang" ? "MENANG" : "KALAH";
+        } else {
+          hasil = "Anda memasukan pilihan yang salah";
+        }
+
+        alert("Kamu memilih " + user + " dan lawan kamu memilih " + comp + " \nMaka hasilnya kamu " + hasil);
+
+        tanya = confirm("lagi? ");
+      }
+    </script>
+  </body>
+</html>
